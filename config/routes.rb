@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'menu', to: 'menus#index'
   get 'catering', to: 'pages#catering'
   get 'info', to: 'pages#info'
+  get 'reviews', to: 'pages#reviews'
   
   resources :products
   
