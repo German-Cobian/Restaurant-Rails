@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-
   devise_for :users
-  get 'pages/home'
-  get 'pages/catering'
-  get 'pages/info'
+
+  root 'pages#home'
+  get 'catering', to: 'pages#catering'
+  get 'info', to: 'pages#info'
+  
   resources :products
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
