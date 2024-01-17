@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#home'
+
+
+  get 'menu', to: 'menus#index'
   get 'catering', to: 'pages#catering'
   get 'info', to: 'pages#info'
   
