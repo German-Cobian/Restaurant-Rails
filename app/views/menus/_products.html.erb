@@ -1,14 +1,14 @@
 <div class="row">
-  <% @categories.each do |category| %>
-    <% if category.products.where(featured: true).first.image.attached? %>
-      <%= image_tag(category.products.where(featured: true).first.image, class: 'img-fluid') %>
+  <% @categories.each do |categor| %>
+    <% if categor.products.where(featured: true).first.image.attached? %>
+      <%= image_tag(categor.products.where(featured: true).first.image, class: 'img-fluid') %>
     <% end %>
     <div class="col-12">
-      <h1 style="text-align: center;"><%= category.heading %></h1>
+      <h1 style="text-align: center;"><%= categor.heading %></h1>
       </hr>
     </div>
     <% @products.each do |product| %>
-      <% if product.category == category %>
+      <% if product.category == categor %>
         <div class="col-4">
           <h5><%= product.name %></h5>
           <p><%= product.description %></p>

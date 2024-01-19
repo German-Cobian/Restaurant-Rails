@@ -1,0 +1,15 @@
+<div id="search-results-container">
+    <div>
+      <div class="row">
+        <% @search_results.each do |result| %>
+          <div class="col-4">
+          <%= image_tag(result.image, class: 'img-fluid', style: 'max-width: 300px; max-height: 200px;') if result.image.attached? %>
+            <h5><%= result.name %></h5>
+            <p><%= result.description %></p>
+            <span><%= result.price %> <%= '| Available for catering' if result.catering %></span>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "Back to Menu", menu_path %>
+    </div>
+  </div>

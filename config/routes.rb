@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  get 'search', to: 'menus#earch'
+  get 'search', to: 'menus#search'
 
   get 'menu', to: 'menus#index'
   get 'catering', to: 'pages#catering'

@@ -9,12 +9,21 @@ class MenusController < ApplicationController
   def search
     query = params[:search]
 
-    results = Products.where('name LIKE ?', "%#{query}%" )
+    results = Product.where('name LIKE ?', "%#{query}%" )
+    
     if params[:filter] == 'Select Filter'
       @products = results
     else
+      # 'Dairy Free' -> 'Dairy_Free' -> 'dairy_free' -> :dairy_free
       symbol = params[:filter].gsub(/ /, '_').downcase!.to_sym
+      # @products = results.where(:dairy_free => true)
       @products = results.where(symbol => true)
+    end
+    @search_results = @products
+    
+    respond_to do |format|
+      format.html { render partial: 'menus/search_results' } # Render HTML partial
+      format.js   # Render JavaScript template (search.js.erb)
     end
   end
 
