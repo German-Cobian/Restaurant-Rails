@@ -9,15 +9,13 @@ Rails.application.routes.draw do
   get 'catering', to: 'pages#catering'
   get 'info', to: 'pages#info'
   get 'reviews', to: 'pages#reviews'
+  get 'cart', to: 'cart#show'
   
-  resources :products
   resources :categories
-
-  get 'cart/show'
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
+  resources :products
+  resources :order_items
   
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
