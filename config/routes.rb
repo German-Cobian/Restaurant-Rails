@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   devise_for :users
 
   root 'pages#home'
@@ -12,6 +11,12 @@ Rails.application.routes.draw do
   get 'reviews', to: 'pages#reviews'
   
   resources :products
+  resources :categories
+
+  get 'cart/show'
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

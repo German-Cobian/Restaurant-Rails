@@ -9,7 +9,7 @@
     </div>
     <% @products.each do |product| %>
       <% if product.category == categor %>
-        <div class="col-4">
+        <div class="col-4 d-flex flex-wrap w-50 border border-primary rounded">
           <h5><%= product.name %></h5>
           <p><%= product.description %></p>
           <span><%= product.price %> <%= '| Available for catering' if product.catering %></span>
