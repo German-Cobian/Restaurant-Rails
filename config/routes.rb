@@ -8,16 +8,11 @@ Rails.application.routes.draw do
   get 'menu', to: 'menus#index'
   get 'catering', to: 'pages#catering'
   get 'info', to: 'pages#info'
-  get 'reviews', to: 'pages#reviews'
+  get 'reviews', to: 'pages#reviews' 
   get 'cart', to: 'cart#show'
   
   resources :categories
   resources :products
   resources :order_items
   
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

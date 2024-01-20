@@ -6,7 +6,7 @@ class OrderItem < ApplicationRecord
 
   def unit_price
     # If there is a record
-    if persisted
+    if persisted?
       self[:unit_price]
     else
       product.price

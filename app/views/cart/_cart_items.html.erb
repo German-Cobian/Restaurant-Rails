@@ -1,13 +1,20 @@
-<% @order_items.each do |item| %>
-  <h3><%= item.product.name %></h3>
-  <h3><%= item.product.price %></h3>
-  <%= form_with model: item do |f| %>
-    <%= f.hidden_field :product_id, value: item.product.id %>
-    <%= f.number_field :quantity, value: item.quantity.to_i %>
-    <%= f.submit 'Update Cart' %>
-    <%= link_to 'Remove Items', item, method: :delete, remote: true %>
+<div class="my-5">
+  <% @order_items.each do |item| %>
+    <% if item.product.image.attached? %>
+      <%= image_tag(item.product.image, class: 'img-fluid', style: 'max-width: 150px; max-height: 100px;') if item.product.image.attached? %>
+    <% end %>
+    <h4 class="my-3"><%= item.product.name %></h4>
+      <h6>Price: <%= item.product.price %></h6>
+      <%= form_with model: item do |f| %>
+        <%= f.hidden_field :product_id, value: item.product.id, class: 'pt-2' %>
+        <h6>Quantity: <%= f.number_field :quantity, value: item.quantity.to_i %></h6>
+        <div class="d-flex flex-row my-3">
+          <%= f.submit 'Update Cart', class: "btn btn-outline-primary rounded py-0 me-5" %>
+          <%= link_to 'Remove Items', item, method: :delete, remote: true, class: "text-danger" %>
+        </div>
+      <% end %>
+    <h6>Subtotal: <%= item.total %></h6>
   <% end %>
-  <h2>Subtotal: <%= item.total %></h2>
-<% end %>
 
-<h3>Your current order has a total of: <%= current_order.subtotal %></h3>
+  <h6>Your current order has a total of: <%= current_order.subtotal %></h6>
+</div>
